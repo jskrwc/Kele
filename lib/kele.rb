@@ -16,8 +16,8 @@ class Kele
 
 
   def get_me
-    response = self.class.get(base_url("users/me"), headers: { "authorization" => @auth_token })
-    @user_data = JSON.parse(response.body)
+    response = self.class.get(base_uri("users/me"), headers: { "authorization" => @auth_token })
+    JSON.parse(response.body)
   end
 
 
