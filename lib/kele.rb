@@ -1,11 +1,13 @@
 require 'httparty'
 require 'json'
+require './lib/roadmap'
 
 
 class Kele
   include HTTParty
+  include Roadmap
 
-  # Intitailzie and Authorize kele w user creds
+  # Intitailzie and Authorize keleclient w user creds
   def initialize(email, password)
     response = self.class.post(base_uri("sessions"), body: {
       email: email,
@@ -33,9 +35,6 @@ class Kele
     end
     available_times
   end
-
-
-  private
 
   # Set up Bloc API url -  pass endpoint to be appended to url
   def base_uri(endpoint)
