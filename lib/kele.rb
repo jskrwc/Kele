@@ -1,11 +1,13 @@
 require 'httparty'
 require 'json'
 require './lib/roadmap'
+require './lib/messages'
 
 
 class Kele
   include HTTParty
   include Roadmap
+  include Messages
 
   # Intitailzie and Authorize keleclient w user creds
   def initialize(email, password)
